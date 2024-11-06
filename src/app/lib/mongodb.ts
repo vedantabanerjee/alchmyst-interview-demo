@@ -18,7 +18,7 @@ async function dbConnect() {
     }
 
     if (!cached.mongoose.promise) {
-        cached.mongoose.promise = mongoose.connect(MONGODB_URI).then((mongoose) => {
+        cached.mongoose.promise = mongoose.connect(MONGODB_URI as string).then((mongoose) => {
             return mongoose;
         });
     }
