@@ -7,7 +7,7 @@ if (!MONGODB_URI) {
 }
 
 // This line is crucial to make TypeScript aware of the `mongoose` property on `global`
-let cached = global as typeof globalThis & { mongoose: { conn: typeof mongoose | null; promise: Promise<typeof mongoose> | null } };
+const cached = global as typeof globalThis & { mongoose: { conn: typeof mongoose | null; promise: Promise<typeof mongoose> | null } };
 
 if (!cached.mongoose) {
     cached.mongoose = { conn: null, promise: null };
