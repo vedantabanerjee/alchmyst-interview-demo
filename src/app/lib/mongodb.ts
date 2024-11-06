@@ -16,7 +16,7 @@ interface MongooseGlobal {
     }
     
     declare global {
-        var mongoose: MongooseGlobal['mongoose'];
+        const mongoose: MongooseGlobal['mongoose'];
 }
 
 let cached = global.mongoose;
