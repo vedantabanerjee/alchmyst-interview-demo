@@ -1,12 +1,11 @@
 import mongoose from "mongoose";
 
-const MONGODB_URI = "mongodb+srv://vedanta:mongo_pass@cluster0.kihjpcv.mongodb.net/";
+const MONGODB_URI = process.env.MONGODB_URI;
 
 if (!MONGODB_URI) {
     throw new Error("Please define the MONGODB_URI environment variable inside .env.local");
 }
 
-// This line is crucial to make TypeScript aware of the `mongoose` property on `global`
 const cached = global as typeof globalThis & { mongoose: { conn: typeof mongoose | null; promise: Promise<typeof mongoose> | null } };
 
 if (!cached.mongoose) {
