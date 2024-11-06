@@ -8,6 +8,17 @@ if (!MONGODB_URI) {
         );
 }
 
+interface MongooseGlobal {
+        mongoose: {
+            conn: typeof mongoose | null;
+            promise: Promise<typeof mongoose> | null;
+        };
+    }
+    
+    declare global {
+        var mongoose: MongooseGlobal['mongoose'];
+}
+
 let cached = global.mongoose;
 
 if (!cached) {
